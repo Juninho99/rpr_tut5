@@ -8,11 +8,13 @@ public class Student {
     private String prezime;
     private Semestar semestar;
     private List<Predmet> predmeti;
+    private Boolean upisan;
 
     public Student(String ime, String prezime) {
         this.ime = ime;
         this.prezime = prezime;
         predmeti = new ArrayList<>();
+        upisan = false;
     }
 
     public String getIme() {
@@ -45,5 +47,14 @@ public class Student {
 
     public void setPredmeti(List<Predmet> predmeti) {
         this.predmeti = predmeti;
+    }
+
+    void dodajObaveznePredmete() {
+        this.predmeti = semestar.getObavezniPredmeti();
+        //provjeriti da li ima preko 30 ects
+    }
+
+    void dodajIzborniPredmet(Predmet predmet) {
+        //provjeriti da li ima preko 30 ects
     }
 }
